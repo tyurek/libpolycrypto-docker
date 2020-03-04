@@ -32,7 +32,7 @@ else
 
     branch=`git branch | grep "\*"`
     branch=${branch/\* /}
-    builddir_base=~/builds/polycrypto/$branch
+    builddir_base=/usr/src/builds/polycrypto/$branch
     case "$buildtype" in
     trace)
         builddir=$builddir_base/trace
