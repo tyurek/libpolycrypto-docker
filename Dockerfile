@@ -41,7 +41,12 @@ RUN git clone https://github.com/tyurek/libpolycrypto-docker.git && \
     pwd &&  \
     source /usr/src/libpolycrypto/libpolycrypto-docker/src/libpolycrypto/scripts/linux/set-env.sh release && \
     chmod 777 *&& \
-    bash make.sh
-    
+    bash make.sh && \
+    echo $PATH
+
+VOLUME /usr/src/builds
+
+ENV PATH="${PATH}:/usr/src/builds/polycrypto/master/release/libpolycrypto/bin/examples:/usr/src/builds/polycrypto/master/release/libpolycrypto/bin/app:/usr/src/builds/polycrypto/master/release/libpolycrypto/bin/bench:/usr/src/builds/polycrypto/master/release/libpolycrypto/bin/test:/usr/src/builds/polycrypto/master/release/libpolycrypto/bin:/usr/src/libpolycrypto/libpolycrypto-docker/src/libpolycrypto/scripts/linux"
+
 # Define default command
 CMD ["bash"]
