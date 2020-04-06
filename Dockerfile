@@ -16,7 +16,7 @@ RUN apt-get update && \
 RUN wget http://www.shoup.net/ntl/ntl-11.4.3.tar.gz && \
 	tar -xf ntl-11.4.3.tar.gz && \
 	cd ntl-11.4.3/src && \
-	./configure NTL_GMP_LIP=on NTL_THREADS=on NTL_THREAD_BOOST=on NTL_EXCEPTIONS=on NTL_STD_CXX11=on && \
+	./configure NTL_GMP_LIP=on NTL_THREADS=off NTL_THREAD_BOOST=off NTL_EXCEPTIONS=on NTL_STD_CXX11=on && \
 	make && \
 	make install
 
@@ -25,11 +25,16 @@ RUN cd /usr/src/ && \
     cd libpolycrypto
 
 WORKDIR /usr/src/libpolycrypto
+#WORKDIR /usr/src/
+
+#COPY src/libpolycrypto/ libpolycrypto/
 
 RUN git clone https://github.com/tyurek/libpolycrypto-docker.git && \
-    pwd && \
-    ls && \
+#    pwd && \
+#    ls && \
     cd libpolycrypto-docker/src/libpolycrypto/scripts/linux && \
+#RUN pwd && ls &&\
+#    cd libpolycrypto/scripts/linux && \
     bash install-libs.sh && \
     bash install-deps.sh && \
     ls && \

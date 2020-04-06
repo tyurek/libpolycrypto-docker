@@ -7,3 +7,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./src:/usr/src
+      - ./src/libpolycrypto:/usr/src/libpolycrypto
+      - ./src/libpolycrypto/scripts:/usr/src/libpolycrypto/scripts
+      - ./src/libpolycrypto/scripts/linux:/usr/src/libpolycrypto/scripts/linux
+      - ./src/libpolycrypto/scripts/linux/install-libs.sh:/usr/src/libpolycrypto/scripts/linux/install-libs.sh
+      - ./src/libpolycrypto/scripts/linux/install-deps.sh:/usr/src/libpolycrypto/scripts/linux/install-deps.sh
