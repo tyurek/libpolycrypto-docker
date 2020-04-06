@@ -45,12 +45,12 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        if(numThreads > 1) {
+        /*if(numThreads > 1) {
             NTL::SetNumThreads(numThreads);
             loginfo << "Changed NTL NumThreads to " << numThreads << endl;
             loginfo << "NTL pool active: " << NTL::GetThreadPool()->active() << endl;
             loginfo << endl;
-        }
+        }*/
     }
 
     loginfo << "Multiplication benchmark for degree " << startSz << ". Iterating " << count << " time(s)" << endl;
